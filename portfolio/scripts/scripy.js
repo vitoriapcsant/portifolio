@@ -1,8 +1,14 @@
 const botao = document.getElementById("modoClaroEscuro");
 console.log(botao);
+const botaoRosa = document.getElementById("modoRosa");
+console.log(botaoRosa);
 
 let claro = true;
 botao.addEventListener("click", function () {
+  botaoRosa.addEventListener("click", function () {
+    document.body.style.backgroundColor = "#FFC0CB";
+    document.body.style.color = "black";
+});
         if (claro) {
                 document.body.style.backgroundColor = "black";
                 document.body.style.color = "white";
@@ -20,7 +26,8 @@ botao.addEventListener("click", function () {
 
 const NOME = "Vitoria e Beatriz";
 let tituloProfissional = "Designer de Jogos Profissional";
-let minhaBio = "Sou um designer de jogos profissional 
+let minhaBio = "Somos duas designers de jogos profissionais que transformam ideias em experiências interativas, criando mundos, narrativas e mecânicas com foco na inovação e na experiência do jogador.";
+let anoFormatura = 2028;
 let mesFormatura = 12;
 let diaFormatura = 31;
 let anoIngresso = 2025;
@@ -52,4 +59,124 @@ document.getElementById("meuNome").innerText = NOME;
 document.getElementById("tituloProfissional").innerText = tituloProfissional;
 document.getElementById("minhaBio").innerText = minhaBio;
 document.getElementById("anoFormatura").innerText = "Ano de formatura: " + anoFormatura;
-document.getElementById("tempoRestanteParaFormatura").innerText = Tempo restante para formatura: ${anoFormatura - anoAtual} anos;
+document.getElementById("tempoRestanteParaFormatura").innerText = `Tempo restante para formatura: ${anoFormatura - anoAtual} anos`;
+
+//Se ano para formatura for 0 ou <0 não que imprima os anos
+if (anoFormatura - anoAtual <= 0) {
+    document.getElementById("tempoRestanteParaFormatura").innerText = "-";
+} else if (anoFormatura - anoAtual === 1) {
+    document.getElementById("tempoRestanteParaFormatura")
+    .innerText = `Tempo restante para formatura: ${anoFormatura - anoAtual} ano`;
+} else {
+    document.getElementById("tempoRestanteParaFormatura")
+    .innerText = `Tempo restante para formatura: ${anoFormatura - anoAtual} anos`;   
+};
+
+let diasRestantes = diaFormatura - diaAtual;
+let mesesRestantes = mesFormatura - mesAtual;
+let anosRestantes = anoFormatura - anoAtual;
+
+if (diasRestantes <= 0 && mesesRestantes <= 0 && anosRestantes <= 0) {
+        document.getElementById("tempoRestanteParaFormatura").innerText = `Curso Concluído!`;
+};
+
+
+
+
+// QUIZ
+
+const btnVisual = document.getElementById("btn-visual");
+const btnLogica = document.getElementById("btn-logica");
+
+const pergunta = document.getElementById("pergunta");
+const resultadoQuiz = document.getElementById("resultado-quiz");
+
+let pontosFront = 0;
+let pontosBack = 0;
+
+let etapa = 1;
+
+
+// BOTÃO VISUAL
+btnVisual.addEventListener("click", function () {
+
+    pontosFront++;
+    proximaPergunta();
+
+});
+
+
+// BOTÃO LÓGICA
+btnLogica.addEventListener("click", function () {
+
+    pontosBack++;
+    proximaPergunta();
+
+});
+
+
+// FUNÇÃO DAS PERGUNTAS
+function proximaPergunta() {
+
+    if (etapa === 1) {
+
+        pergunta.innerText = "O que parece mais divertido?";
+
+        btnVisual.innerText = "🎨 Criar animações e cores";
+
+        btnLogica.innerText = "⚙️ Trabalhar com banco de dados";
+
+        etapa = 2;
+
+    } else if (etapa === 2) {
+
+        pergunta.innerText = "Qual área você acha mais interessante?";
+
+        btnVisual.innerText = "🎨 Experiência do usuário";
+
+        btnLogica.innerText = "⚙️ Sistemas e servidores";
+
+        etapa = 3;
+
+    } else {
+
+        mostrarResultado();
+
+    }
+
+}
+
+
+// RESULTADO FINAL
+function mostrarResultado() {
+
+    if (pontosFront > pontosBack) {
+
+        resultadoQuiz.innerHTML = `
+            <h3>🎨 Perfil Front-End!</h3>
+            <p>
+            Você gosta da parte visual e criativa.
+            </p>
+        `;
+
+    } else if (pontosBack > pontosFront) {
+
+        resultadoQuiz.innerHTML = `
+            <h3>⚙️ Perfil Back-End!</h3>
+            <p>
+            Você gosta mais de lógica e sistemas.
+            </p>
+        `;
+
+    } else {
+
+        resultadoQuiz.innerHTML = `
+            <h3>🔄 Perfil Full Stack!</h3>
+            <p>
+            Você gosta das duas áreas.
+            </p>
+        `;
+
+    }
+
+}
