@@ -24,6 +24,7 @@ botao.addEventListener("click", function () {
 }
 );
 
+`use strict`;
 const NOME = "Vitoria e Beatriz";
 let tituloProfissional = "Designer de Jogos Profissional";
 let minhaBio = "Somos duas designers de jogos profissionais que transformam ideias em experiências interativas, criando mundos, narrativas e mecânicas com foco na inovação e na experiência do jogador.";
@@ -180,3 +181,36 @@ function mostrarResultado() {
     }
 
 }
+
+for  (let i = 0;i <=20;i++) {
+  let pares = (i % 2 === 0) ? "Par" : "Ímpar";
+  console.log(`${i} é ${pares}`);
+}
+
+let object = {
+  nome: "Vitor",
+  idade: 24,
+  profissao: "Designer de Jogos"
+};
+
+for (let chave in object) {
+  document.write(<p>${chave}: ${object[chave]}</p>);
+}
+let alunos = ["Vitória", "Beatriz", "Gabriel", "Vitor", "Leo"];
+for (let contem of alunos) {
+ if (contem === "Vitoria") {
+  document.write(<p> ${contem} - Presente!</p>);
+  } else {
+  document.write(<p> ${contem} - Ausente!</p>);
+  }
+ }
+
+ let num  = prompt ("Prompt 1 - Diga um número  par")
+ while (num % 2 !== 0) {
+  num = prompt("Ops, esse número não é par. Tente novamente:");
+ };
+
+ do {
+  num = prompt ("Prompt 2 - Diga um número par:");
+  while (num % 2 !==0);
+ }
