@@ -188,29 +188,40 @@ for  (let i = 0;i <=20;i++) {
 }
 
 let object = {
-  nome: "Vitor",
-  idade: 24,
-  profissao: "Designer de Jogos"
+  Nome: "Vitoria",
+  Idade: 17,
+  Profissão: "Designer de Jogos"
 };
 
 for (let chave in object) {
-  document.write(<p>${chave}: ${object[chave]}</p>);
+  document.write(`<p>${chave}: ${object[chave]}</p>`);
 }
+
 let alunos = ["Vitória", "Beatriz", "Gabriel", "Vitor", "Leo"];
 for (let contem of alunos) {
  if (contem === "Vitoria") {
-  document.write(<p> ${contem} - Presente!</p>);
+  document.write(`<p> ${contem} - Presente!</p>`);
   } else {
-  document.write(<p> ${contem} - Ausente!</p>);
+  document.write(`<p> ${contem} - Ausente!</p>`);
   }
  }
 
  let num  = prompt ("Prompt 1 - Diga um número  par")
- while (num % 2 !== 0) {
-  num = prompt("Ops, esse número não é par. Tente novamente:");
- };
+  while (num % 2 !== 0) {
+    num = prompt("Ops, esse número não é par. Tente novamente:");
+     };
 
- do {
-  num = prompt ("Prompt 2 - Diga um número par:");
-  while (num % 2 !==0);
- }
+      do {
+        num = prompt ("Prompt 2 - Diga um número par:");
+      } while (num % 2 !== 0);
+
+let qualidades = {
+  Nome: "Vitoria Pereira",
+  Idade: 17,
+  habilidades: "sou organizada, diciplinada, amigável e boa aluna "
+};
+
+for (let chave in qualidades) {
+  document.write(`<p>${chave}: ${qualidades[chave]}</p>`);
+}
+
