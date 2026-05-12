@@ -225,3 +225,18 @@ for (let chave in qualidades) {
   document.write(`<p>${chave}: ${qualidades[chave]}</p>`);
 }
 
+let projetos = [
+    //Objeto de index 0 
+    {nome :"Estoque da Wepink",
+    tecnologia : ["VTEX IO "],
+    conhecimentos : "Lógica de programação, banco de dados, organização de estoque e desenvolvimento de sistemas.",
+    descricao : "Sistema desenvolvido para auxiliar no controle de estoque da WePink, permitindo cadastrar produtos, controlar entradas e saídas e organizar as informações dos itens."
+    },
+]
+document.createElement("h2").innerText = projetos[0].nome;
+document.createElement("p").innerText = projetos[0].descricao;
+document.createElement("ul").innerText = "Tecnologias Utilizadas: " + projetos[0].tecnologias.join(", ");
+
+console.log(projetos[0].nome);
+console.log(projetos[1].descricao);
+console.log(projetos[1].tecnologias[0]);
