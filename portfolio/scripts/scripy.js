@@ -240,3 +240,19 @@ document.createElement("ul").innerText = "Tecnologias Utilizadas: " + projetos[0
 console.log(projetos[0].nome);
 console.log(projetos[1].descricao);
 console.log(projetos[1].tecnologias[0]);
+
+/* function nomeDaFuncao(parametro1, parametro2,...){
+  return valorDeRetorno
+
+}
+*/
+function meuPeso(peso){
+  return function(altura){
+    return peso/altura ** 2
+  }
+}
+
+let imc = meuPeso(68)(1.67);
+
+let imc2 = meuPeso(75);
+console.log(imc2(1.80))
